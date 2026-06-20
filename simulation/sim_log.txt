@@ -1,0 +1,17 @@
+warning: Some design elements have no explicit time unit and/or
+       : time precision. This may cause confusing timing results.
+       : Affected design elements are:
+       :   -- module mmu declared here: design.sv:35
+VCD info: dumpfile mmu_waveform.vcd opened for output.
+[PASS] Test 1 (Valid_Read_Page0): VA=0005 ACC=0 -> PA=1005 valid=1 pf=0 prot=0
+[PASS] Test 2 (alid_Write_Page0): VA=0042 ACC=1 -> PA=1042 valid=1 pf=0 prot=0
+[PASS] Test 3 (PageFault_Page2): VA=0210 ACC=0 -> PA=0000 valid=0 pf=1 prot=0
+[PASS] Test 4 (_WriteOnReadOnly): VA=0107 ACC=1 -> PA=0000 valid=0 pf=0 prot=1
+[PASS] Test 5 (ad_ReadOnlyPage1): VA=0107 ACC=0 -> PA=2007 valid=1 pf=0 prot=0
+[PASS] Test 6 (axPage_MaxOffset): VA=ffff ACC=0 -> PA=aaff valid=1 pf=0 prot=0
+[PASS] Test 7 (xPage_ZeroOffset): VA=ff00 ACC=1 -> PA=aa00 valid=1 pf=0 prot=0
+[PASS] Test 8 (Disabled_Enable): outputs correctly idle
+-----------------------------------------------------
+ALL 8 TESTS PASSED
+-----------------------------------------------------
+testbench.sv:237: $finish called at 271000 (1ps)

@@ -1,0 +1,1876 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.33 (git sha1 2584903a060)
+
+
+-- Running command `read_verilog rtl/mmu.v; synth -top mmu; stat' --
+
+1. Executing Verilog-2005 frontend: rtl/mmu.v
+Parsing Verilog input from `rtl/mmu.v' to AST representation.
+Generating RTLIL representation for module `\mmu'.
+Warning: Replacing memory \page_table with list of registers. See rtl/mmu.v:82
+Successfully finished Verilog frontend.
+
+2. Executing SYNTH pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \mmu
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \mmu
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$rtl/mmu.v:0$22 in module mmu.
+Marked 1 switch rules as full_case in process $proc$rtl/mmu.v:0$22 in module mmu.
+Marked 3 switch rules as full_case in process $proc$rtl/mmu.v:116$12 in module mmu.
+Marked 3 switch rules as full_case in process $proc$rtl/mmu.v:79$4 in module mmu.
+Removed a total of 1 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 8 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\mmu.$proc$rtl/mmu.v:79$4'.
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~6 debug messages>
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\mmu.$proc$rtl/mmu.v:0$22'.
+     1/1: $1$mem2reg_rd$\page_table$rtl/mmu.v:106$3_DATA[10:0]$24
+Creating decoders for process `\mmu.$proc$rtl/mmu.v:116$12'.
+     1/12: $3\translation_valid[0:0]
+     2/12: $3\protection_fault[0:0]
+     3/12: $3\page_fault[0:0]
+     4/12: $3\physical_addr[15:0]
+     5/12: $2\translation_valid[0:0]
+     6/12: $2\protection_fault[0:0]
+     7/12: $2\page_fault[0:0]
+     8/12: $2\physical_addr[15:0]
+     9/12: $1\translation_valid[0:0]
+    10/12: $1\protection_fault[0:0]
+    11/12: $1\page_fault[0:0]
+    12/12: $1\physical_addr[15:0]
+Creating decoders for process `\mmu.$proc$rtl/mmu.v:79$4'.
+     1/261: $2$mem2reg_wr$\page_table$rtl/mmu.v:85$2_ADDR[7:0]$10
+     2/261: $2$mem2reg_wr$\page_table$rtl/mmu.v:85$2_DATA[10:0]$11
+     3/261: $1$mem2reg_wr$\page_table$rtl/mmu.v:85$2_DATA[10:0]$9
+     4/261: $1$mem2reg_wr$\page_table$rtl/mmu.v:85$2_ADDR[7:0]$8
+     5/261: $1\i[31:0]
+     6/261: $0\page_table[255][10:0]
+     7/261: $0\page_table[254][10:0]
+     8/261: $0\page_table[253][10:0]
+     9/261: $0\page_table[252][10:0]
+    10/261: $0\page_table[251][10:0]
+    11/261: $0\page_table[250][10:0]
+    12/261: $0\page_table[249][10:0]
+    13/261: $0\page_table[248][10:0]
+    14/261: $0\page_table[247][10:0]
+    15/261: $0\page_table[246][10:0]
+    16/261: $0\page_table[245][10:0]
+    17/261: $0\page_table[244][10:0]
+    18/261: $0\page_table[243][10:0]
+    19/261: $0\page_table[242][10:0]
+    20/261: $0\page_table[241][10:0]
+    21/261: $0\page_table[240][10:0]
+    22/261: $0\page_table[239][10:0]
+    23/261: $0\page_table[238][10:0]
+    24/261: $0\page_table[237][10:0]
+    25/261: $0\page_table[236][10:0]
+    26/261: $0\page_table[235][10:0]
+    27/261: $0\page_table[234][10:0]
+    28/261: $0\page_table[233][10:0]
+    29/261: $0\page_table[232][10:0]
+    30/261: $0\page_table[231][10:0]
+    31/261: $0\page_table[230][10:0]
+    32/261: $0\page_table[229][10:0]
+    33/261: $0\page_table[228][10:0]
+    34/261: $0\page_table[227][10:0]
+    35/261: $0\page_table[226][10:0]
+    36/261: $0\page_table[225][10:0]
+    37/261: $0\page_table[224][10:0]
+    38/261: $0\page_table[223][10:0]
+    39/261: $0\page_table[222][10:0]
+    40/261: $0\page_table[221][10:0]
+    41/261: $0\page_table[220][10:0]
+    42/261: $0\page_table[219][10:0]
+    43/261: $0\page_table[218][10:0]
+    44/261: $0\page_table[217][10:0]
+    45/261: $0\page_table[216][10:0]
+    46/261: $0\page_table[215][10:0]
+    47/261: $0\page_table[214][10:0]
+    48/261: $0\page_table[213][10:0]
+    49/261: $0\page_table[212][10:0]
+    50/261: $0\page_table[211][10:0]
+    51/261: $0\page_table[210][10:0]
+    52/261: $0\page_table[209][10:0]
+    53/261: $0\page_table[208][10:0]
+    54/261: $0\page_table[207][10:0]
+    55/261: $0\page_table[206][10:0]
+    56/261: $0\page_table[205][10:0]
+    57/261: $0\page_table[204][10:0]
+    58/261: $0\page_table[203][10:0]
+    59/261: $0\page_table[202][10:0]
+    60/261: $0\page_table[201][10:0]
+    61/261: $0\page_table[200][10:0]
+    62/261: $0\page_table[199][10:0]
+    63/261: $0\page_table[198][10:0]
+    64/261: $0\page_table[197][10:0]
+    65/261: $0\page_table[196][10:0]
+    66/261: $0\page_table[195][10:0]
+    67/261: $0\page_table[194][10:0]
+    68/261: $0\page_table[193][10:0]
+    69/261: $0\page_table[192][10:0]
+    70/261: $0\page_table[191][10:0]
+    71/261: $0\page_table[190][10:0]
+    72/261: $0\page_table[189][10:0]
+    73/261: $0\page_table[188][10:0]
+    74/261: $0\page_table[187][10:0]
+    75/261: $0\page_table[186][10:0]
+    76/261: $0\page_table[185][10:0]
+    77/261: $0\page_table[184][10:0]
+    78/261: $0\page_table[183][10:0]
+    79/261: $0\page_table[182][10:0]
+    80/261: $0\page_table[181][10:0]
+    81/261: $0\page_table[180][10:0]
+    82/261: $0\page_table[179][10:0]
+    83/261: $0\page_table[178][10:0]
+    84/261: $0\page_table[177][10:0]
+    85/261: $0\page_table[176][10:0]
+    86/261: $0\page_table[175][10:0]
+    87/261: $0\page_table[174][10:0]
+    88/261: $0\page_table[173][10:0]
+    89/261: $0\page_table[172][10:0]
+    90/261: $0\page_table[171][10:0]
+    91/261: $0\page_table[170][10:0]
+    92/261: $0\page_table[169][10:0]
+    93/261: $0\page_table[168][10:0]
+    94/261: $0\page_table[167][10:0]
+    95/261: $0\page_table[166][10:0]
+    96/261: $0\page_table[165][10:0]
+    97/261: $0\page_table[164][10:0]
+    98/261: $0\page_table[163][10:0]
+    99/261: $0\page_table[162][10:0]
+   100/261: $0\page_table[161][10:0]
+   101/261: $0\page_table[160][10:0]
+   102/261: $0\page_table[159][10:0]
+   103/261: $0\page_table[158][10:0]
+   104/261: $0\page_table[157][10:0]
+   105/261: $0\page_table[156][10:0]
+   106/261: $0\page_table[155][10:0]
+   107/261: $0\page_table[154][10:0]
+   108/261: $0\page_table[153][10:0]
+   109/261: $0\page_table[152][10:0]
+   110/261: $0\page_table[151][10:0]
+   111/261: $0\page_table[150][10:0]
+   112/261: $0\page_table[149][10:0]
+   113/261: $0\page_table[148][10:0]
+   114/261: $0\page_table[147][10:0]
+   115/261: $0\page_table[146][10:0]
+   116/261: $0\page_table[145][10:0]
+   117/261: $0\page_table[144][10:0]
+   118/261: $0\page_table[143][10:0]
+   119/261: $0\page_table[142][10:0]
+   120/261: $0\page_table[141][10:0]
+   121/261: $0\page_table[140][10:0]
+   122/261: $0\page_table[139][10:0]
+   123/261: $0\page_table[138][10:0]
+   124/261: $0\page_table[137][10:0]
+   125/261: $0\page_table[136][10:0]
+   126/261: $0\page_table[135][10:0]
+   127/261: $0\page_table[134][10:0]
+   128/261: $0\page_table[133][10:0]
+   129/261: $0\page_table[132][10:0]
+   130/261: $0\page_table[131][10:0]
+   131/261: $0\page_table[130][10:0]
+   132/261: $0\page_table[129][10:0]
+   133/261: $0\page_table[128][10:0]
+   134/261: $0\page_table[127][10:0]
+   135/261: $0\page_table[126][10:0]
+   136/261: $0\page_table[125][10:0]
+   137/261: $0\page_table[124][10:0]
+   138/261: $0\page_table[123][10:0]
+   139/261: $0\page_table[122][10:0]
+   140/261: $0\page_table[121][10:0]
+   141/261: $0\page_table[120][10:0]
+   142/261: $0\page_table[119][10:0]
+   143/261: $0\page_table[118][10:0]
+   144/261: $0\page_table[117][10:0]
+   145/261: $0\page_table[116][10:0]
+   146/261: $0\page_table[115][10:0]
+   147/261: $0\page_table[114][10:0]
+   148/261: $0\page_table[113][10:0]
+   149/261: $0\page_table[112][10:0]
+   150/261: $0\page_table[111][10:0]
+   151/261: $0\page_table[110][10:0]
+   152/261: $0\page_table[109][10:0]
+   153/261: $0\page_table[108][10:0]
+   154/261: $0\page_table[107][10:0]
+   155/261: $0\page_table[106][10:0]
+   156/261: $0\page_table[105][10:0]
+   157/261: $0\page_table[104][10:0]
+   158/261: $0\page_table[103][10:0]
+   159/261: $0\page_table[102][10:0]
+   160/261: $0\page_table[101][10:0]
+   161/261: $0\page_table[100][10:0]
+   162/261: $0\page_table[99][10:0]
+   163/261: $0\page_table[98][10:0]
+   164/261: $0\page_table[97][10:0]
+   165/261: $0\page_table[96][10:0]
+   166/261: $0\page_table[95][10:0]
+   167/261: $0\page_table[94][10:0]
+   168/261: $0\page_table[93][10:0]
+   169/261: $0\page_table[92][10:0]
+   170/261: $0\page_table[91][10:0]
+   171/261: $0\page_table[90][10:0]
+   172/261: $0\page_table[89][10:0]
+   173/261: $0\page_table[88][10:0]
+   174/261: $0\page_table[87][10:0]
+   175/261: $0\page_table[86][10:0]
+   176/261: $0\page_table[85][10:0]
+   177/261: $0\page_table[84][10:0]
+   178/261: $0\page_table[83][10:0]
+   179/261: $0\page_table[82][10:0]
+   180/261: $0\page_table[81][10:0]
+   181/261: $0\page_table[80][10:0]
+   182/261: $0\page_table[79][10:0]
+   183/261: $0\page_table[78][10:0]
+   184/261: $0\page_table[77][10:0]
+   185/261: $0\page_table[76][10:0]
+   186/261: $0\page_table[75][10:0]
+   187/261: $0\page_table[74][10:0]
+   188/261: $0\page_table[73][10:0]
+   189/261: $0\page_table[72][10:0]
+   190/261: $0\page_table[71][10:0]
+   191/261: $0\page_table[70][10:0]
+   192/261: $0\page_table[69][10:0]
+   193/261: $0\page_table[68][10:0]
+   194/261: $0\page_table[67][10:0]
+   195/261: $0\page_table[66][10:0]
+   196/261: $0\page_table[65][10:0]
+   197/261: $0\page_table[64][10:0]
+   198/261: $0\page_table[63][10:0]
+   199/261: $0\page_table[62][10:0]
+   200/261: $0\page_table[61][10:0]
+   201/261: $0\page_table[60][10:0]
+   202/261: $0\page_table[59][10:0]
+   203/261: $0\page_table[58][10:0]
+   204/261: $0\page_table[57][10:0]
+   205/261: $0\page_table[56][10:0]
+   206/261: $0\page_table[55][10:0]
+   207/261: $0\page_table[54][10:0]
+   208/261: $0\page_table[53][10:0]
+   209/261: $0\page_table[52][10:0]
+   210/261: $0\page_table[51][10:0]
+   211/261: $0\page_table[50][10:0]
+   212/261: $0\page_table[49][10:0]
+   213/261: $0\page_table[48][10:0]
+   214/261: $0\page_table[47][10:0]
+   215/261: $0\page_table[46][10:0]
+   216/261: $0\page_table[45][10:0]
+   217/261: $0\page_table[44][10:0]
+   218/261: $0\page_table[43][10:0]
+   219/261: $0\page_table[42][10:0]
+   220/261: $0\page_table[41][10:0]
+   221/261: $0\page_table[40][10:0]
+   222/261: $0\page_table[39][10:0]
+   223/261: $0\page_table[38][10:0]
+   224/261: $0\page_table[37][10:0]
+   225/261: $0\page_table[36][10:0]
+   226/261: $0\page_table[35][10:0]
+   227/261: $0\page_table[34][10:0]
+   228/261: $0\page_table[33][10:0]
+   229/261: $0\page_table[32][10:0]
+   230/261: $0\page_table[31][10:0]
+   231/261: $0\page_table[30][10:0]
+   232/261: $0\page_table[29][10:0]
+   233/261: $0\page_table[28][10:0]
+   234/261: $0\page_table[27][10:0]
+   235/261: $0\page_table[26][10:0]
+   236/261: $0\page_table[25][10:0]
+   237/261: $0\page_table[24][10:0]
+   238/261: $0\page_table[23][10:0]
+   239/261: $0\page_table[22][10:0]
+   240/261: $0\page_table[21][10:0]
+   241/261: $0\page_table[20][10:0]
+   242/261: $0\page_table[19][10:0]
+   243/261: $0\page_table[18][10:0]
+   244/261: $0\page_table[17][10:0]
+   245/261: $0\page_table[16][10:0]
+   246/261: $0\page_table[15][10:0]
+   247/261: $0\page_table[14][10:0]
+   248/261: $0\page_table[13][10:0]
+   249/261: $0\page_table[12][10:0]
+   250/261: $0\page_table[11][10:0]
+   251/261: $0\page_table[10][10:0]
+   252/261: $0\page_table[9][10:0]
+   253/261: $0\page_table[8][10:0]
+   254/261: $0\page_table[7][10:0]
+   255/261: $0\page_table[6][10:0]
+   256/261: $0\page_table[5][10:0]
+   257/261: $0\page_table[4][10:0]
+   258/261: $0\page_table[3][10:0]
+   259/261: $0\page_table[2][10:0]
+   260/261: $0\page_table[1][10:0]
+   261/261: $0\page_table[0][10:0]
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\mmu.$mem2reg_rd$\page_table$rtl/mmu.v:106$3_DATA' from process `\mmu.$proc$rtl/mmu.v:0$22'.
+No latch inferred for signal `\mmu.\physical_addr' from process `\mmu.$proc$rtl/mmu.v:116$12'.
+No latch inferred for signal `\mmu.\page_fault' from process `\mmu.$proc$rtl/mmu.v:116$12'.
+No latch inferred for signal `\mmu.\protection_fault' from process `\mmu.$proc$rtl/mmu.v:116$12'.
+No latch inferred for signal `\mmu.\translation_valid' from process `\mmu.$proc$rtl/mmu.v:116$12'.
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\mmu.\i' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34279' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[0]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34280' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[1]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34281' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[2]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34282' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[3]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34283' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[4]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34284' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[5]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34285' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[6]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34286' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[7]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34287' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[8]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34288' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[9]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34289' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[10]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34290' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[11]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34291' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[12]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34292' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[13]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34293' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[14]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34294' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[15]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34295' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[16]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34296' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[17]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34297' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[18]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34298' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[19]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34299' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[20]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34300' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[21]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34301' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[22]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34302' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[23]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34303' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[24]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34304' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[25]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34305' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[26]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34306' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[27]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34307' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[28]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34308' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[29]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34309' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[30]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34310' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[31]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34311' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[32]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34312' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[33]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34313' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[34]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34314' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[35]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34315' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[36]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34316' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[37]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34317' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[38]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34318' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[39]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34319' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[40]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34320' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[41]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34321' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[42]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34322' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[43]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34323' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[44]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34324' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[45]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34325' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[46]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34326' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[47]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34327' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[48]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34328' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[49]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34329' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[50]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34330' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[51]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34331' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[52]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34332' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[53]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34333' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[54]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34334' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[55]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34335' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[56]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34336' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[57]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34337' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[58]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34338' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[59]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34339' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[60]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34340' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[61]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34341' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[62]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34342' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[63]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34343' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[64]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34344' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[65]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34345' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[66]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34346' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[67]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34347' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[68]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34348' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[69]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34349' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[70]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34350' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[71]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34351' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[72]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34352' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[73]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34353' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[74]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34354' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[75]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34355' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[76]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34356' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[77]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34357' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[78]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34358' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[79]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34359' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[80]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34360' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[81]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34361' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[82]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34362' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[83]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34363' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[84]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34364' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[85]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34365' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[86]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34366' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[87]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34367' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[88]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34368' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[89]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34369' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[90]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34370' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[91]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34371' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[92]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34372' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[93]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34373' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[94]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34374' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[95]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34375' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[96]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34376' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[97]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34377' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[98]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34378' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[99]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34379' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[100]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34380' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[101]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34381' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[102]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34382' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[103]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34383' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[104]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34384' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[105]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34385' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[106]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34386' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[107]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34387' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[108]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34388' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[109]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34389' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[110]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34390' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[111]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34391' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[112]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34392' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[113]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34393' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[114]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34394' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[115]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34395' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[116]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34396' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[117]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34397' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[118]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34398' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[119]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34399' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[120]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34400' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[121]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34401' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[122]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34402' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[123]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34403' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[124]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34404' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[125]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34405' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[126]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34406' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[127]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34407' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[128]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34408' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[129]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34409' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[130]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34410' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[131]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34411' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[132]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34412' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[133]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34413' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[134]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34414' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[135]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34415' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[136]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34416' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[137]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34417' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[138]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34418' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[139]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34419' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[140]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34420' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[141]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34421' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[142]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34422' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[143]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34423' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[144]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34424' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[145]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34425' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[146]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34426' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[147]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34427' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[148]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34428' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[149]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34429' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[150]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34430' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[151]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34431' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[152]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34432' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[153]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34433' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[154]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34434' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[155]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34435' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[156]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34436' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[157]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34437' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[158]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34438' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[159]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34439' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[160]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34440' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[161]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34441' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[162]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34442' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[163]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34443' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[164]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34444' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[165]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34445' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[166]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34446' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[167]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34447' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[168]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34448' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[169]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34449' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[170]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34450' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[171]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34451' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[172]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34452' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[173]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34453' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[174]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34454' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[175]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34455' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[176]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34456' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[177]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34457' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[178]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34458' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[179]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34459' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[180]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34460' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[181]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34461' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[182]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34462' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[183]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34463' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[184]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34464' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[185]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34465' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[186]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34466' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[187]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34467' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[188]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34468' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[189]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34469' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[190]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34470' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[191]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34471' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[192]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34472' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[193]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34473' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[194]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34474' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[195]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34475' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[196]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34476' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[197]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34477' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[198]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34478' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[199]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34479' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[200]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34480' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[201]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34481' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[202]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34482' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[203]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34483' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[204]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34484' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[205]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34485' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[206]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34486' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[207]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34487' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[208]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34488' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[209]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34489' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[210]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34490' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[211]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34491' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[212]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34492' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[213]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34493' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[214]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34494' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[215]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34495' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[216]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34496' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[217]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34497' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[218]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34498' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[219]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34499' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[220]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34500' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[221]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34501' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[222]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34502' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[223]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34503' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[224]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34504' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[225]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34505' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[226]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34506' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[227]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34507' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[228]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34508' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[229]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34509' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[230]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34510' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[231]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34511' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[232]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34512' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[233]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34513' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[234]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34514' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[235]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34515' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[236]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34516' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[237]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34517' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[238]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34518' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[239]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34519' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[240]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34520' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[241]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34521' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[242]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34522' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[243]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34523' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[244]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34524' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[245]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34525' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[246]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34526' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[247]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34527' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[248]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34528' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[249]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34529' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[250]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34530' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[251]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34531' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[252]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34532' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[253]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34533' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[254]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34534' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.\page_table[255]' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34535' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.$mem2reg_wr$\page_table$rtl/mmu.v:85$2_ADDR' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34536' with positive edge clock and negative level reset.
+Creating register for signal `\mmu.$mem2reg_wr$\page_table$rtl/mmu.v:85$2_DATA' using process `\mmu.$proc$rtl/mmu.v:79$4'.
+  created $adff cell `$procdff$34537' with positive edge clock and negative level reset.
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\mmu.$proc$rtl/mmu.v:0$22'.
+Removing empty process `mmu.$proc$rtl/mmu.v:0$22'.
+Found and cleaned up 3 empty switches in `\mmu.$proc$rtl/mmu.v:116$12'.
+Removing empty process `mmu.$proc$rtl/mmu.v:116$12'.
+Found and cleaned up 2 empty switches in `\mmu.$proc$rtl/mmu.v:79$4'.
+Removing empty process `mmu.$proc$rtl/mmu.v:79$4'.
+Cleaned up 6 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+<suppressed ~24 debug messages>
+
+2.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+
+2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+Removed 8 unused cells and 579 unused wires.
+<suppressed ~10 debug messages>
+
+2.5. Executing CHECK pass (checking for obvious problems).
+Checking module mmu...
+Found and reported 0 problems.
+
+2.6. Executing OPT pass (performing simple optimizations).
+
+2.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+
+2.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mmu'.
+Removed a total of 0 cells.
+
+2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mmu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$286.
+    dead port 2/2 on $mux $procmux$289.
+    dead port 2/2 on $mux $procmux$295.
+    dead port 2/2 on $mux $procmux$298.
+    dead port 2/2 on $mux $procmux$303.
+    dead port 2/2 on $mux $procmux$306.
+    dead port 2/2 on $mux $procmux$312.
+    dead port 2/2 on $mux $procmux$315.
+    dead port 2/2 on $mux $procmux$321.
+    dead port 2/2 on $mux $procmux$327.
+    dead port 2/2 on $mux $procmux$333.
+    dead port 2/2 on $mux $procmux$339.
+Removed 12 multiplexer ports.
+<suppressed ~261 debug messages>
+
+2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mmu.
+Performed a total of 0 changes.
+
+2.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mmu'.
+Removed a total of 0 cells.
+
+2.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+Removed 0 unused cells and 12 unused wires.
+<suppressed ~1 debug messages>
+
+2.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+
+2.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mmu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~261 debug messages>
+
+2.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mmu.
+Performed a total of 0 changes.
+
+2.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mmu'.
+Removed a total of 0 cells.
+
+2.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+
+2.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+
+2.6.16. Finished OPT passes. (There is nothing left to do.)
+
+2.7. Executing FSM pass (extract and optimize FSM).
+
+2.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+2.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+2.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+
+2.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+2.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+2.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+2.8. Executing OPT pass (performing simple optimizations).
+
+2.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+
+2.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mmu'.
+Removed a total of 0 cells.
+
+2.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mmu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~261 debug messages>
+
+2.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mmu.
+Performed a total of 0 changes.
+
+2.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mmu'.
+Removed a total of 0 cells.
+
+2.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$34535 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[255]).
+Adding EN signal on $procdff$34534 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[254]).
+Adding EN signal on $procdff$34533 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[253]).
+Adding EN signal on $procdff$34532 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[252]).
+Adding EN signal on $procdff$34531 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[251]).
+Adding EN signal on $procdff$34530 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[250]).
+Adding EN signal on $procdff$34529 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[249]).
+Adding EN signal on $procdff$34528 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[248]).
+Adding EN signal on $procdff$34527 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[247]).
+Adding EN signal on $procdff$34526 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[246]).
+Adding EN signal on $procdff$34525 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[245]).
+Adding EN signal on $procdff$34524 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[244]).
+Adding EN signal on $procdff$34523 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[243]).
+Adding EN signal on $procdff$34522 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[242]).
+Adding EN signal on $procdff$34521 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[241]).
+Adding EN signal on $procdff$34520 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[240]).
+Adding EN signal on $procdff$34519 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[239]).
+Adding EN signal on $procdff$34518 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[238]).
+Adding EN signal on $procdff$34517 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[237]).
+Adding EN signal on $procdff$34516 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[236]).
+Adding EN signal on $procdff$34515 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[235]).
+Adding EN signal on $procdff$34514 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[234]).
+Adding EN signal on $procdff$34513 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[233]).
+Adding EN signal on $procdff$34512 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[232]).
+Adding EN signal on $procdff$34511 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[231]).
+Adding EN signal on $procdff$34510 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[230]).
+Adding EN signal on $procdff$34509 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[229]).
+Adding EN signal on $procdff$34508 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[228]).
+Adding EN signal on $procdff$34507 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[227]).
+Adding EN signal on $procdff$34506 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[226]).
+Adding EN signal on $procdff$34505 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[225]).
+Adding EN signal on $procdff$34504 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[224]).
+Adding EN signal on $procdff$34503 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[223]).
+Adding EN signal on $procdff$34502 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[222]).
+Adding EN signal on $procdff$34501 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[221]).
+Adding EN signal on $procdff$34500 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[220]).
+Adding EN signal on $procdff$34499 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[219]).
+Adding EN signal on $procdff$34498 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[218]).
+Adding EN signal on $procdff$34497 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[217]).
+Adding EN signal on $procdff$34496 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[216]).
+Adding EN signal on $procdff$34495 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[215]).
+Adding EN signal on $procdff$34494 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[214]).
+Adding EN signal on $procdff$34493 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[213]).
+Adding EN signal on $procdff$34492 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[212]).
+Adding EN signal on $procdff$34491 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[211]).
+Adding EN signal on $procdff$34490 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[210]).
+Adding EN signal on $procdff$34489 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[209]).
+Adding EN signal on $procdff$34488 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[208]).
+Adding EN signal on $procdff$34487 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[207]).
+Adding EN signal on $procdff$34486 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[206]).
+Adding EN signal on $procdff$34485 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[205]).
+Adding EN signal on $procdff$34484 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[204]).
+Adding EN signal on $procdff$34483 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[203]).
+Adding EN signal on $procdff$34482 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[202]).
+Adding EN signal on $procdff$34481 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[201]).
+Adding EN signal on $procdff$34480 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[200]).
+Adding EN signal on $procdff$34479 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[199]).
+Adding EN signal on $procdff$34478 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[198]).
+Adding EN signal on $procdff$34477 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[197]).
+Adding EN signal on $procdff$34476 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[196]).
+Adding EN signal on $procdff$34475 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[195]).
+Adding EN signal on $procdff$34474 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[194]).
+Adding EN signal on $procdff$34473 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[193]).
+Adding EN signal on $procdff$34472 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[192]).
+Adding EN signal on $procdff$34471 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[191]).
+Adding EN signal on $procdff$34470 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[190]).
+Adding EN signal on $procdff$34469 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[189]).
+Adding EN signal on $procdff$34468 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[188]).
+Adding EN signal on $procdff$34467 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[187]).
+Adding EN signal on $procdff$34466 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[186]).
+Adding EN signal on $procdff$34465 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[185]).
+Adding EN signal on $procdff$34464 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[184]).
+Adding EN signal on $procdff$34463 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[183]).
+Adding EN signal on $procdff$34462 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[182]).
+Adding EN signal on $procdff$34461 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[181]).
+Adding EN signal on $procdff$34460 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[180]).
+Adding EN signal on $procdff$34459 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[179]).
+Adding EN signal on $procdff$34458 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[178]).
+Adding EN signal on $procdff$34457 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[177]).
+Adding EN signal on $procdff$34456 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[176]).
+Adding EN signal on $procdff$34455 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[175]).
+Adding EN signal on $procdff$34454 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[174]).
+Adding EN signal on $procdff$34453 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[173]).
+Adding EN signal on $procdff$34452 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[172]).
+Adding EN signal on $procdff$34451 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[171]).
+Adding EN signal on $procdff$34450 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[170]).
+Adding EN signal on $procdff$34449 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[169]).
+Adding EN signal on $procdff$34448 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[168]).
+Adding EN signal on $procdff$34447 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[167]).
+Adding EN signal on $procdff$34446 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[166]).
+Adding EN signal on $procdff$34445 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[165]).
+Adding EN signal on $procdff$34444 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[164]).
+Adding EN signal on $procdff$34443 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[163]).
+Adding EN signal on $procdff$34442 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[162]).
+Adding EN signal on $procdff$34441 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[161]).
+Adding EN signal on $procdff$34440 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[160]).
+Adding EN signal on $procdff$34439 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[159]).
+Adding EN signal on $procdff$34438 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[158]).
+Adding EN signal on $procdff$34437 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[157]).
+Adding EN signal on $procdff$34436 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[156]).
+Adding EN signal on $procdff$34435 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[155]).
+Adding EN signal on $procdff$34434 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[154]).
+Adding EN signal on $procdff$34433 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[153]).
+Adding EN signal on $procdff$34432 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[152]).
+Adding EN signal on $procdff$34431 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[151]).
+Adding EN signal on $procdff$34430 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[150]).
+Adding EN signal on $procdff$34429 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[149]).
+Adding EN signal on $procdff$34428 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[148]).
+Adding EN signal on $procdff$34427 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[147]).
+Adding EN signal on $procdff$34426 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[146]).
+Adding EN signal on $procdff$34425 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[145]).
+Adding EN signal on $procdff$34424 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[144]).
+Adding EN signal on $procdff$34423 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[143]).
+Adding EN signal on $procdff$34422 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[142]).
+Adding EN signal on $procdff$34421 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[141]).
+Adding EN signal on $procdff$34420 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[140]).
+Adding EN signal on $procdff$34419 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[139]).
+Adding EN signal on $procdff$34418 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[138]).
+Adding EN signal on $procdff$34417 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[137]).
+Adding EN signal on $procdff$34416 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[136]).
+Adding EN signal on $procdff$34415 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[135]).
+Adding EN signal on $procdff$34414 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[134]).
+Adding EN signal on $procdff$34413 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[133]).
+Adding EN signal on $procdff$34412 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[132]).
+Adding EN signal on $procdff$34411 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[131]).
+Adding EN signal on $procdff$34410 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[130]).
+Adding EN signal on $procdff$34409 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[129]).
+Adding EN signal on $procdff$34408 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[128]).
+Adding EN signal on $procdff$34407 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[127]).
+Adding EN signal on $procdff$34406 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[126]).
+Adding EN signal on $procdff$34405 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[125]).
+Adding EN signal on $procdff$34404 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[124]).
+Adding EN signal on $procdff$34403 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[123]).
+Adding EN signal on $procdff$34402 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[122]).
+Adding EN signal on $procdff$34401 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[121]).
+Adding EN signal on $procdff$34400 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[120]).
+Adding EN signal on $procdff$34399 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[119]).
+Adding EN signal on $procdff$34398 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[118]).
+Adding EN signal on $procdff$34397 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[117]).
+Adding EN signal on $procdff$34396 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[116]).
+Adding EN signal on $procdff$34395 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[115]).
+Adding EN signal on $procdff$34394 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[114]).
+Adding EN signal on $procdff$34393 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[113]).
+Adding EN signal on $procdff$34392 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[112]).
+Adding EN signal on $procdff$34391 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[111]).
+Adding EN signal on $procdff$34390 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[110]).
+Adding EN signal on $procdff$34389 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[109]).
+Adding EN signal on $procdff$34388 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[108]).
+Adding EN signal on $procdff$34387 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[107]).
+Adding EN signal on $procdff$34386 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[106]).
+Adding EN signal on $procdff$34385 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[105]).
+Adding EN signal on $procdff$34384 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[104]).
+Adding EN signal on $procdff$34383 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[103]).
+Adding EN signal on $procdff$34382 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[102]).
+Adding EN signal on $procdff$34381 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[101]).
+Adding EN signal on $procdff$34380 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[100]).
+Adding EN signal on $procdff$34379 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[99]).
+Adding EN signal on $procdff$34378 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[98]).
+Adding EN signal on $procdff$34377 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[97]).
+Adding EN signal on $procdff$34376 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[96]).
+Adding EN signal on $procdff$34375 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[95]).
+Adding EN signal on $procdff$34374 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[94]).
+Adding EN signal on $procdff$34373 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[93]).
+Adding EN signal on $procdff$34372 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[92]).
+Adding EN signal on $procdff$34371 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[91]).
+Adding EN signal on $procdff$34370 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[90]).
+Adding EN signal on $procdff$34369 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[89]).
+Adding EN signal on $procdff$34368 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[88]).
+Adding EN signal on $procdff$34367 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[87]).
+Adding EN signal on $procdff$34366 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[86]).
+Adding EN signal on $procdff$34365 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[85]).
+Adding EN signal on $procdff$34364 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[84]).
+Adding EN signal on $procdff$34363 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[83]).
+Adding EN signal on $procdff$34362 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[82]).
+Adding EN signal on $procdff$34361 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[81]).
+Adding EN signal on $procdff$34360 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[80]).
+Adding EN signal on $procdff$34359 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[79]).
+Adding EN signal on $procdff$34358 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[78]).
+Adding EN signal on $procdff$34357 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[77]).
+Adding EN signal on $procdff$34356 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[76]).
+Adding EN signal on $procdff$34355 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[75]).
+Adding EN signal on $procdff$34354 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[74]).
+Adding EN signal on $procdff$34353 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[73]).
+Adding EN signal on $procdff$34352 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[72]).
+Adding EN signal on $procdff$34351 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[71]).
+Adding EN signal on $procdff$34350 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[70]).
+Adding EN signal on $procdff$34349 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[69]).
+Adding EN signal on $procdff$34348 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[68]).
+Adding EN signal on $procdff$34347 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[67]).
+Adding EN signal on $procdff$34346 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[66]).
+Adding EN signal on $procdff$34345 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[65]).
+Adding EN signal on $procdff$34344 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[64]).
+Adding EN signal on $procdff$34343 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[63]).
+Adding EN signal on $procdff$34342 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[62]).
+Adding EN signal on $procdff$34341 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[61]).
+Adding EN signal on $procdff$34340 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[60]).
+Adding EN signal on $procdff$34339 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[59]).
+Adding EN signal on $procdff$34338 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[58]).
+Adding EN signal on $procdff$34337 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[57]).
+Adding EN signal on $procdff$34336 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[56]).
+Adding EN signal on $procdff$34335 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[55]).
+Adding EN signal on $procdff$34334 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[54]).
+Adding EN signal on $procdff$34333 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[53]).
+Adding EN signal on $procdff$34332 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[52]).
+Adding EN signal on $procdff$34331 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[51]).
+Adding EN signal on $procdff$34330 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[50]).
+Adding EN signal on $procdff$34329 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[49]).
+Adding EN signal on $procdff$34328 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[48]).
+Adding EN signal on $procdff$34327 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[47]).
+Adding EN signal on $procdff$34326 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[46]).
+Adding EN signal on $procdff$34325 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[45]).
+Adding EN signal on $procdff$34324 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[44]).
+Adding EN signal on $procdff$34323 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[43]).
+Adding EN signal on $procdff$34322 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[42]).
+Adding EN signal on $procdff$34321 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[41]).
+Adding EN signal on $procdff$34320 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[40]).
+Adding EN signal on $procdff$34319 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[39]).
+Adding EN signal on $procdff$34318 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[38]).
+Adding EN signal on $procdff$34317 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[37]).
+Adding EN signal on $procdff$34316 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[36]).
+Adding EN signal on $procdff$34315 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[35]).
+Adding EN signal on $procdff$34314 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[34]).
+Adding EN signal on $procdff$34313 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[33]).
+Adding EN signal on $procdff$34312 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[32]).
+Adding EN signal on $procdff$34311 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[31]).
+Adding EN signal on $procdff$34310 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[30]).
+Adding EN signal on $procdff$34309 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[29]).
+Adding EN signal on $procdff$34308 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[28]).
+Adding EN signal on $procdff$34307 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[27]).
+Adding EN signal on $procdff$34306 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[26]).
+Adding EN signal on $procdff$34305 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[25]).
+Adding EN signal on $procdff$34304 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[24]).
+Adding EN signal on $procdff$34303 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[23]).
+Adding EN signal on $procdff$34302 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[22]).
+Adding EN signal on $procdff$34301 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[21]).
+Adding EN signal on $procdff$34300 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[20]).
+Adding EN signal on $procdff$34299 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[19]).
+Adding EN signal on $procdff$34298 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[18]).
+Adding EN signal on $procdff$34297 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[17]).
+Adding EN signal on $procdff$34296 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[16]).
+Adding EN signal on $procdff$34295 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[15]).
+Adding EN signal on $procdff$34294 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[14]).
+Adding EN signal on $procdff$34293 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[13]).
+Adding EN signal on $procdff$34292 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[12]).
+Adding EN signal on $procdff$34291 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[11]).
+Adding EN signal on $procdff$34290 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[10]).
+Adding EN signal on $procdff$34289 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[9]).
+Adding EN signal on $procdff$34288 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[8]).
+Adding EN signal on $procdff$34287 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[7]).
+Adding EN signal on $procdff$34286 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[6]).
+Adding EN signal on $procdff$34285 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[5]).
+Adding EN signal on $procdff$34284 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[4]).
+Adding EN signal on $procdff$34283 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[3]).
+Adding EN signal on $procdff$34282 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[2]).
+Adding EN signal on $procdff$34281 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[1]).
+Adding EN signal on $procdff$34280 ($adff) from module mmu (D = { \pt_write_frame \pt_write_valid \pt_write_write_perm \pt_write_read_perm }, Q = \page_table[0]).
+
+2.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+Removed 512 unused cells and 512 unused wires.
+<suppressed ~513 debug messages>
+
+2.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+
+2.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mmu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+2.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mmu.
+Performed a total of 0 changes.
+
+2.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mmu'.
+Removed a total of 0 cells.
+
+2.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+
+2.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+
+2.8.16. Finished OPT passes. (There is nothing left to do.)
+
+2.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$154_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$155_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$156_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$157_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$158_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$159_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$160_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$161_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$162_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$163_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$164_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$165_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$166_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$167_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$168_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$169_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$170_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$171_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$172_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$173_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$174_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$175_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$176_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$177_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$178_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$179_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$180_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$181_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$182_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$183_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$184_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$185_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$186_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$187_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$188_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$189_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$190_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$191_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$192_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$193_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$194_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$195_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$196_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$197_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$198_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$199_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$200_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$201_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$202_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$203_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$204_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$205_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$206_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$207_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$208_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$209_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$210_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$211_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$212_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$213_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$214_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$215_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$216_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$217_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$218_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$219_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$220_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$221_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$222_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$223_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$224_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$225_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$226_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$227_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$228_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$229_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$230_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$231_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$232_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$233_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$234_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$235_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$236_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$237_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$238_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$239_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$240_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$241_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$242_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$243_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$244_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$245_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$246_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$247_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$248_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$249_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$250_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$251_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$252_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$253_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$254_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$255_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$256_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$257_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$258_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$259_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$260_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$261_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$262_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$263_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$264_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$265_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$266_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$267_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$268_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$269_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$270_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$271_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$272_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$273_CMP0 ($eq).
+Removed top 5 bits (of 8) from port B of cell mmu.$procmux$274_CMP0 ($eq).
+Removed top 5 bits (of 8) from port B of cell mmu.$procmux$275_CMP0 ($eq).
+Removed top 5 bits (of 8) from port B of cell mmu.$procmux$276_CMP0 ($eq).
+Removed top 5 bits (of 8) from port B of cell mmu.$procmux$277_CMP0 ($eq).
+Removed top 6 bits (of 8) from port B of cell mmu.$procmux$278_CMP0 ($eq).
+Removed top 6 bits (of 8) from port B of cell mmu.$procmux$279_CMP0 ($eq).
+Removed top 7 bits (of 8) from port B of cell mmu.$procmux$280_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$9257_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$9391_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$9526_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$9662_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$9799_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$9937_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$10076_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$10216_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$10357_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$10499_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$10642_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$10786_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$10931_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$11077_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$11224_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$11372_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$11521_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$11671_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$11822_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$11974_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$12127_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$12281_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$12436_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$12592_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$12749_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$12907_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$13066_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$13226_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$13387_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$13549_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$13712_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$13876_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$14041_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$14207_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$14374_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$14542_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$14711_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$14881_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$15052_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$15224_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$15397_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$15571_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$15746_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$15922_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$16099_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$16277_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$16456_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$16636_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$16817_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$16999_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$17182_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$17366_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$17551_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$17737_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$17924_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$18112_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$18301_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$18491_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$18682_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$18874_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$19067_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$19261_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$19456_CMP0 ($eq).
+Removed top 1 bits (of 8) from port B of cell mmu.$procmux$19652_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$19849_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$20047_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$20246_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$20446_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$20647_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$20849_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$21052_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$21256_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$21461_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$21667_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$21874_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$22082_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$22291_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$22501_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$22712_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$22924_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$23137_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$23351_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$23566_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$23782_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$23999_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$24217_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$24436_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$24656_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$24877_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$25099_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$25322_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$25546_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$25771_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$25997_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$26224_CMP0 ($eq).
+Removed top 2 bits (of 8) from port B of cell mmu.$procmux$26452_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$26681_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$26911_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$27142_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$27374_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$27607_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$27841_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$28076_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$28312_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$28549_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$28787_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$29026_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$29266_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$29507_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$29749_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$29992_CMP0 ($eq).
+Removed top 3 bits (of 8) from port B of cell mmu.$procmux$30236_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$30481_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$30727_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$30974_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$31222_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$31471_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$31721_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$31972_CMP0 ($eq).
+Removed top 4 bits (of 8) from port B of cell mmu.$procmux$32224_CMP0 ($eq).
+Removed top 5 bits (of 8) from port B of cell mmu.$procmux$32477_CMP0 ($eq).
+Removed top 5 bits (of 8) from port B of cell mmu.$procmux$32731_CMP0 ($eq).
+Removed top 5 bits (of 8) from port B of cell mmu.$procmux$32986_CMP0 ($eq).
+Removed top 5 bits (of 8) from port B of cell mmu.$procmux$33242_CMP0 ($eq).
+Removed top 6 bits (of 8) from port B of cell mmu.$procmux$33499_CMP0 ($eq).
+Removed top 6 bits (of 8) from port B of cell mmu.$procmux$33757_CMP0 ($eq).
+Removed top 7 bits (of 8) from port B of cell mmu.$procmux$34016_CMP0 ($eq).
+
+2.10. Executing PEEPOPT pass (run peephole optimizers).
+
+2.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+
+2.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module mmu:
+  created 0 $alu and 0 $macc cells.
+
+2.13. Executing SHARE pass (SAT-based resource sharing).
+
+2.14. Executing OPT pass (performing simple optimizations).
+
+2.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+
+2.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mmu'.
+Removed a total of 0 cells.
+
+2.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mmu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+2.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mmu.
+Performed a total of 0 changes.
+
+2.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mmu'.
+Removed a total of 0 cells.
+
+2.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+
+2.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+
+2.14.9. Finished OPT passes. (There is nothing left to do.)
+
+2.15. Executing MEMORY pass.
+
+2.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+2.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+2.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+2.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+2.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+2.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+
+2.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+2.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+2.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+
+2.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+
+2.17. Executing OPT pass (performing simple optimizations).
+
+2.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+<suppressed ~9 debug messages>
+
+2.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mmu'.
+Removed a total of 0 cells.
+
+2.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+Removed 1 unused cells and 2 unused wires.
+<suppressed ~2 debug messages>
+
+2.17.5. Finished fast OPT passes.
+
+2.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+2.19. Executing OPT pass (performing simple optimizations).
+
+2.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+
+2.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mmu'.
+Removed a total of 0 cells.
+
+2.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mmu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+2.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mmu.
+Performed a total of 0 changes.
+
+2.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mmu'.
+Removed a total of 0 cells.
+
+2.19.6. Executing OPT_SHARE pass.
+
+2.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+
+2.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+
+2.19.10. Finished OPT passes. (There is nothing left to do.)
+
+2.20. Executing TECHMAP pass (map to technology primitives).
+
+2.20.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+2.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod$2252f46b6b1401411d24dbcedd9bb15c683d4b60\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $reduce_or.
+No more expansions possible.
+<suppressed ~1394 debug messages>
+
+2.21. Executing OPT pass (performing simple optimizations).
+
+2.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+<suppressed ~4080 debug messages>
+
+2.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mmu'.
+<suppressed ~15006 debug messages>
+Removed a total of 5002 cells.
+
+2.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+Removed 0 unused cells and 4790 unused wires.
+<suppressed ~1 debug messages>
+
+2.21.5. Finished fast OPT passes.
+
+2.22. Executing ABC pass (technology mapping using ABC).
+
+2.22.1. Extracting gate netlist of module `\mmu' to `<abc-temp-dir>/input.blif'..
+Extracted 7315 gates and 10159 wires to a netlist network with 2843 inputs and 275 outputs.
+
+2.22.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+2.22.1.2. Re-integrating ABC results.
+ABC RESULTS:              NAND cells:      134
+ABC RESULTS:               NOT cells:        3
+ABC RESULTS:               MUX cells:       12
+ABC RESULTS:                OR cells:     3425
+ABC RESULTS:             ORNOT cells:       52
+ABC RESULTS:            ANDNOT cells:     3155
+ABC RESULTS:               AND cells:        3
+ABC RESULTS:        internal signals:     7041
+ABC RESULTS:           input signals:     2843
+ABC RESULTS:          output signals:      275
+Removing temp directory.
+
+2.23. Executing OPT pass (performing simple optimizations).
+
+2.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mmu.
+
+2.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mmu'.
+Removed a total of 0 cells.
+
+2.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mmu..
+Removed 0 unused cells and 4094 unused wires.
+<suppressed ~6 debug messages>
+
+2.23.5. Finished fast OPT passes.
+
+2.24. Executing HIERARCHY pass (managing design hierarchy).
+
+2.24.1. Analyzing design hierarchy..
+Top module:  \mmu
+
+2.24.2. Analyzing design hierarchy..
+Top module:  \mmu
+Removed 0 unused modules.
+
+2.25. Printing statistics.
+
+=== mmu ===
+
+   Number of wires:               7038
+   Number of wire bits:           9656
+   Number of public wires:         273
+   Number of public wire bits:    2891
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               9600
+     $_ANDNOT_                    3155
+     $_AND_                          3
+     $_DFFE_PN0P_                 2816
+     $_MUX_                         12
+     $_NAND_                       134
+     $_NOT_                          3
+     $_ORNOT_                       52
+     $_OR_                        3425
+
+2.26. Executing CHECK pass (checking for obvious problems).
+Checking module mmu...
+Found and reported 0 problems.
+
+3. Printing statistics.
+
+=== mmu ===
+
+   Number of wires:               7038
+   Number of wire bits:           9656
+   Number of public wires:         273
+   Number of public wire bits:    2891
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               9600
+     $_ANDNOT_                    3155
+     $_AND_                          3
+     $_DFFE_PN0P_                 2816
+     $_MUX_                         12
+     $_NAND_                       134
+     $_NOT_                          3
+     $_ORNOT_                       52
+     $_OR_                        3425
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: bdee02fe25, CPU: user 14.06s system 0.25s, MEM: 58.45 MB peak
+Yosys 0.33 (git sha1 2584903a060)
+Time spent: 24% 15x opt_expr (3 sec), 17% 15x opt_clean (2 sec), ...
