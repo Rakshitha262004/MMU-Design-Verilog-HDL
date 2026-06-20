@@ -167,8 +167,8 @@ Hardware is not required to prove this project — simulation results, waveforms
 ## Screenshot
 |waveforms|simulation|
 |---------|----------|
-|![waveform](waveforms/waveform_screenshot_1.png)|![sim_log](ouputs/1.png)|
-|![waveform](waveforms/waveform_screenshot_2.png)|![sim_log](ouputs/2.png)|
+| ![waveform](waveforms/waveform_screenshot_1.png) | ![sim_log](ouputs/1.png)|
+| ![waveform](waveforms/waveform_screenshot_2.png) | ![sim_log](ouputs/2.png)|
 
 ## Future Improvements
 
@@ -186,4 +186,4 @@ Hardware is not required to prove this project — simulation results, waveforms
 
 ---
 
-**Author:** Rakshitha A S (1AH23CY042) — B.E. Cybersecurity
+**Author:** Rakshitha A S  — B.E. Cybersecurity
