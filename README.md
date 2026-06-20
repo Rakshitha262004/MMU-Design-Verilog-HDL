@@ -167,8 +167,8 @@ Hardware is not required to prove this project — simulation results, waveforms
 ## Screenshot
 |waveforms|simulation|
 |---------|----------|
-|![waveform](waveforms/waveform_screenshot_1.png)|![sim_log](outputs/1.png)|
-|![waveform](waveforms/waveform_screenshot_2.png)|![sim_log](outputs/2.png)|
+|![waveform](waveforms/waveform_screenshot_1.png)|![sim_log](ouputs/1.png)|
+|![waveform](waveforms/waveform_screenshot_2.png)|![sim_log](ouputs/2.png)|
 
 ## Future Improvements
 
