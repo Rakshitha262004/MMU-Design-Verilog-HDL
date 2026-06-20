@@ -164,6 +164,12 @@ Hardware is not required to prove this project — simulation results, waveforms
 5. Generate **Bitstream** and program the board
 6. Use switches for virtual address / access type, observe physical address and fault flags on LEDs
 
+## Screenshot
+|waveforms|simulation|
+|---------|----------|
+|![waveform](waveforms/waveform_screenshot_1.png)|![sim_log](outputs/1.png)|
+|![waveform](waveforms/waveform_screenshot_2.png)|![sim_log](outputs/2.png)|
+
 ## Future Improvements
 
 - Add a Translation Lookaside Buffer (TLB) for caching recent translations
